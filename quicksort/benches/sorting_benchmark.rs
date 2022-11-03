@@ -1,8 +1,10 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use quicksort::sort;
+use rand::Rng;
 
 fn criterion_benchmark(c: &mut Criterion) {
-    let mut vec = vec![1, 4, 2, 9, 5, 2, 1, 8, 3, 3, 6, 6, 7, 3, 2];
+    let mut rng = rand::thread_rng();
+    let mut vec = (0..50000).map(|_| rng.gen_range(0, 1000)).collect::<Vec<_>>();
     c.bench_function("quicksort", |b| b.iter(|| sort(black_box(&mut vec))));
 }
 

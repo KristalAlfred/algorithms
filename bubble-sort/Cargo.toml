@@ -10,6 +10,7 @@ path = "src/bubble-sort.rs"
 
 [dev-dependencies]
 criterion = "0.3"
+rand = "0.6.5"
 
 [[bench]]
 name = "sorting_benchmark"
