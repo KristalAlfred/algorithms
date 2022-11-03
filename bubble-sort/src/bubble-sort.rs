@@ -1,6 +1,6 @@
 use std::cmp::Ord;
 
-pub fn sort<T: Ord + std::fmt::Debug>(collection: &mut [T]) {
+pub fn sort<T: Ord>(collection: &mut [T]) {
     if collection.is_empty() {
         return;
     }
