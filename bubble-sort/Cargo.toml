@@ -8,4 +8,9 @@ path = "src/bubble-sort.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "sorting_benchmark"
+harness = false
