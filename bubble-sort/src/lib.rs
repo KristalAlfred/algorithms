@@ -21,3 +21,50 @@ pub fn sort<T: Ord + std::fmt::Debug>(collection: &mut [T]) {
         iter_max -= 1;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn is_sorted<T>(collection: &[T]) -> bool 
+    where
+        T: Ord,
+    {
+        collection.windows(2).all(|w| w[0] <= w[1])
+    }
+
+    #[test]
+    fn empty() {
+        let mut vec: Vec<i32> = vec![];
+        sort(&mut vec);
+        assert!(is_sorted(&vec));
+    }
+
+    #[test]
+    fn one_element() {
+        let mut vec = vec![1];
+        sort(&mut vec);
+        assert!(is_sorted(&vec));
+    }
+
+    #[test]
+    fn already_sorted() {
+        let mut vec = vec![1, 2, 3];
+        sort(&mut vec);
+        assert!(is_sorted(&vec));
+    }
+
+    #[test]
+    fn reverse_sorted() {
+        let mut vec = vec![3, 2, 1];
+        sort(&mut vec);
+        assert!(is_sorted(&vec));
+    }
+
+    #[test]
+    fn random() {
+        let mut vec = vec![3, 2, 1, 5, 4];
+        sort(&mut vec);
+        assert!(is_sorted(&vec));
+    }
+}
