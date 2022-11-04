@@ -1,3 +1,10 @@
+/**
+ * Bubble sort is an algorithm that compares the adjacent elements and 
+ * swaps their positions if they are not in the intended order. The
+ * pass through the unsorted portion of the data is repeated until no
+ * swaps are needed, which indicates that the data is sorted.
+*/
+
 use std::cmp::Ord;
 
 pub fn sort<T: Ord>(collection: &mut [T]) {
