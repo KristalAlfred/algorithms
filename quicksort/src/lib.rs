@@ -1,3 +1,13 @@
+/**
+ * Quick sort is a sorting algorithm that uses a divide and conquer strategy.
+ * It works by selecting a 'pivot' element from the collection and partitioning
+ * the other elements into two subcollections, according to whether they are
+ * less than or greater than the pivot. The subcollections are then sorted
+ * recursively. This can be done in-place, requiring small additional amounts
+ * of memory to perform the sorting. This implementation, however, copies the 
+ * pivot element once per recursion.
+ */
+
 use std::cmp::Ord;
 
 pub fn sort<T>(collection: &mut [T])
