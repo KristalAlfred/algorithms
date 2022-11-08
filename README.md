@@ -11,4 +11,6 @@ usually just a simple implementation using wikipedia or some other publicly avai
 - [x] Quick sort
 - [x] Selection sort
 - [x] Insertion sort
-- [ ] Merge sort
+- [x] Merge sort
+- [ ] Radix sort
+- [ ] Tim sort
