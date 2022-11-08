@@ -39,10 +39,45 @@ mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
+    fn random() {
         let mut collection = vec![5, 4, 1, 3, 2];
         sort(&mut collection);
         assert_eq!(collection, vec![1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn empty() {
+        let mut collection: Vec<i32> = vec![];
+        sort(&mut collection);
+        assert_eq!(collection, vec![]);
+    }
+
+    #[test]
+    fn one_element() {
+        let mut collection = vec![1];
+        sort(&mut collection);
+        assert_eq!(collection, vec![1]);
+    }
+
+    #[test]
+    fn already_sorted() {
+        let mut collection = vec![1, 2, 3, 4, 5];
+        sort(&mut collection);
+        assert_eq!(collection, vec![1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn reverse_sorted() {
+        let mut collection = vec![5, 4, 3, 2, 1];
+        sort(&mut collection);
+        assert_eq!(collection, vec![1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn same_elements() {
+        let mut collection = vec![1, 1, 1, 1, 1];
+        sort(&mut collection);
+        assert_eq!(collection, vec![1, 1, 1, 1, 1]);
     }
 }
 
