@@ -2,12 +2,10 @@ pub fn sort<T>(collection: &mut [T])
     where T: Ord + std::fmt::Debug
 {
     if collection.len() > 1 {
-        // println!("Splitting {:?} into two parts", collection);
         let (front, back) = collection.split_at_mut(collection.len() / 2);
         sort(front);
         sort(back);
     } else {
-        // A single value is considered sorted.
         return;
     }
 
