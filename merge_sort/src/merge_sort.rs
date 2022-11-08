@@ -11,20 +11,27 @@ pub fn sort<T>(collection: &mut [T])
 
     let mut front_index = 0;
     let mut back_index = 0;
+    let mid_point = collection.len() / 2;
 
     let mut sorted: Vec<&T> = Vec::with_capacity(collection.len());
 
     println!("Pre sorted: {:?}", collection);
     // Merge front and back into sorted.
-    while front_index < collection.len() / 2 && back_index < collection.len() / 2 {
-        if collection[front_index] < collection[collection.len() / 2 + back_index] {
+    for _ in 0..collection.len() {
+        if mid_point + back_index == collection.len() {
+            sorted.push(&collection[front_index]);
+            front_index += 1;
+            continue;
+        }
+        if collection[front_index] < collection[mid_point + back_index] {
             sorted.push(&collection[front_index]);
             front_index += 1;
         } else {
-            sorted.push(&collection[collection.len() / 2 + back_index]);
+            sorted.push(&collection[mid_point + back_index]);
             back_index += 1;
         }
     }
+    println!("front_index: {}, back_index: {}, mid_point: {}", front_index, back_index, mid_point);
     println!("Post sorted: {:?}", sorted);
 }
 
