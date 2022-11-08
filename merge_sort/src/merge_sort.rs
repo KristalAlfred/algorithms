@@ -1,5 +1,5 @@
 pub fn sort<T>(collection: &mut [T])
-    where T: Ord + Copy + std::fmt::Debug
+    where T: Ord + Copy
 {
     if collection.len() > 1 {
         let (front, back) = collection.split_at_mut(collection.len() / 2);
