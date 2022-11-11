@@ -8,7 +8,8 @@ pub fn sort<T>(collection: &mut [T])
     let mut iteration = 1;
     let mut last_iteration = false;
     loop {
-        // Divide the collection into buckets
+        // Divide the collection into buckets. This is done by taking the last digit of the number and
+        // putting it in the corresponding bucket. This implementation always uses 10 buckets.
         let mut buckets = vec![0; 10];
         for item in collection.iter() {
             let bucket = ((*item / iteration) % 10) as usize;
@@ -27,6 +28,7 @@ pub fn sort<T>(collection: &mut [T])
             first_index += temp;
         }
         
+        // Move items to their correct position
         for item in collection.to_owned().iter() {
             let bucket = ((*item / iteration) % 10) as usize;
             collection[buckets[bucket]] = *item;
