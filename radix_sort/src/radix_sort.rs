@@ -1,4 +1,5 @@
 // This code is written for learning purposes and I have used implementation from TheAlgorithms/Rust as reference.
+// (Doesn't currently work for negative numbers. Might fix this in the future.)
 use std::ops::{Rem, Div};
 
 pub fn sort<T>(collection: &mut [T])
