@@ -1,5 +1,4 @@
 // This code is written for learning purposes and I have used implementation from TheAlgorithms/Rust as reference.
-
 use std::ops::{Rem, Div};
 
 pub fn sort<T>(collection: &mut [T])
@@ -65,5 +64,26 @@ mod tests {
         let mut v = vec![9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
         sort(&mut v);
         assert_eq!(v, vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    }
+
+    #[test]
+    fn empty() {
+        let mut v: Vec<i32> = vec![];
+        sort(&mut v);
+        assert_eq!(v, vec![]);
+    }
+
+    #[test]
+    fn one_element() {
+        let mut v = vec![1];
+        sort(&mut v);
+        assert_eq!(v, vec![1]);
+    }
+
+    #[test]
+    fn equal_elements() {
+        let mut v = vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        sort(&mut v);
+        assert_eq!(v, vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
     }
 }
