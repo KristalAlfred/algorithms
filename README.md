@@ -12,5 +12,5 @@ usually just a simple implementation using wikipedia or some other publicly avai
 - [x] Selection sort
 - [x] Insertion sort
 - [x] Merge sort
-- [ ] Radix sort
+- [x] Radix sort
 - [ ] Tim sort
