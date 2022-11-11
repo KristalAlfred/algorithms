@@ -1,9 +1,10 @@
+// This code is written for learning purposes and I have used implementation from TheAlgorithms/Rust as reference.
+
 use std::ops::{Rem, Div};
 
 pub fn sort<T>(collection: &mut [T])
-    where T: Rem<i32, Output = i32> + Div<i32, Output = i32> + Copy + std::fmt::Display
+    where T: Rem<i32, Output = i32> + Div<i32, Output = i32> + Copy
 {
-    // Works but is heavily influenced by the implementation from TheAlgorithms/Rust.
     let mut iteration = 1;
     let mut last_iteration = false;
     loop {
