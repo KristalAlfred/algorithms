@@ -1,10 +1,9 @@
 use std::ops::{Rem, Div};
 
 pub fn sort<T>(collection: &mut [T])
-    where T: Rem<i32, Output = i32> + Div<i32, Output = i32> + Copy
+    where T: Rem<i32, Output = i32> + Div<i32, Output = i32> + Copy + std::fmt::Display
 {
     // Works but is heavily influenced by the implementation from TheAlgorithms/Rust.
-    // TODO: Play around and find other ways to write this.
     let mut iteration = 1;
     let mut last_iteration = false;
     loop {
@@ -19,15 +18,18 @@ pub fn sort<T>(collection: &mut [T])
             last_iteration = true;
         }
 
-        // Calculate the last index for each bucket
-        for i in 1..buckets.len() {
-            buckets[i] += buckets[i - 1];
+        // Calculate the first index for each bucket
+        let mut first_index = 0;
+        for bucket in buckets.iter_mut() {
+            let temp = *bucket;
+            *bucket = first_index;
+            first_index += temp;
         }
         
-        for item in collection.to_owned().iter().rev() {
+        for item in collection.to_owned().iter() {
             let bucket = ((*item / iteration) % 10) as usize;
-            buckets[bucket] -= 1;
             collection[buckets[bucket]] = *item;
+            buckets[bucket] += 1;
         }
 
         iteration *= 10;
